@@ -1,0 +1,217 @@
+*,
+*:after,
+*:before {
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+/* artykuł wyjasniający poniższy zestaw styli (zastępujący reset.css czy normalize.css): 'http://jaydenseric.com/blog/forget-normalize-or-resets-lay-your-own-css-foundation') */
+
+html {
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+}
+
+body {
+    margin: 0;
+    font: 16px sans-serif; /* tutaj zastanowić się nad większą wartością line-height, ok. 1.55 (sprawdź na: 'https://www.gridlover.net/') - zastanowić się w ogóle czy ustawiać line-height, bo wcześniejsze ustawienie 16px/1 spodowało mi, dziwne wyświetlanie się linku w tagu <h1> (link był wyższy niż nagłówek w którym link się znajdował...?) */
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+}
+
+/* Only specify elements that exist or can be in your project */
+h1,
+h2,
+h3,
+h4,
+p,
+blockquote,
+figure,
+ol,
+ul,
+dl,
+dt,
+dd,
+textarea {
+    margin: 0;
+    padding: 0;
+}
+
+main,
+li {
+    display: block; /* It gets rid of the little bullets and numbers from list items and fix the <main> tag that could be unsupported */
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-size: inherit; /* Headings will inherit the same size as the surrounding text by default and not some arbitrary larger size */
+}
+
+input {
+    border: none;
+}
+
+strong {
+    font-weight: bold;
+}
+
+
+/*****************************************
+to może do oddzielnego pliku z buttonami
+*****************************************/
+
+a,
+button {
+    color: inherit;
+    transition: .3s; /* zastanowić się czy takiego defaultowego przejścia nie dać dla wszystkich selektorów (jak w DevTips na selektorze '*' */
+}
+
+a {
+    text-decoration: none;
+}
+
+button {
+    overflow: visible;
+    border: 0;
+    font: inherit;
+    -webkit-font-smoothing: inherit;
+    letter-spacing: inherit;
+    background: none;
+    cursor: pointer;
+}
+
+button {
+    overflow: visible; /* brings IE into line ??? (że jaki błąd?) */
+    border: 0;
+    font: inherit;
+    -webkit-font-smoothing: inherit; /* rule fixes buggy inheritance ??? (jakie bugi?) */
+    letter-spacing: inherit;
+    background: none;
+    cursor: pointer;
+}
+
+::-moz-focus-inner { /* Bug 140562 - Replace -moz-focus-inner from form elements with standard outline */
+    padding: 0;
+    border: 0;
+}
+
+
+/*****************************************
+responsive and media queries breakpoints
+*****************************************/
+
+img {
+    max-width: 100%;
+    height: auto;
+    border: 0; /* fixes images within links gaining a border in IE 8, 9 and 10 */
+}
+
+/*  xs - Extra small devices (portrait phones, less than 576px) - default */
+/*  sm - Small devices (landscape phones, 576px and up) */
+/*  md - Medium devices (tablets, 768px and up) */
+/*  lg - Large devices (desktops, 992px and up) */
+/*  xl - Extra large devices (large desktops, 1200px and up) */
+
+@media (max-width: 575px) {
+    .hidden-xs-down {
+        display: none !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hidden-sm-down {
+        display: none !important;
+    }
+}
+
+@media (max-width: 991px) {
+    .hidden-md-down {
+        display: none !important;
+    }
+}
+
+@media (max-width: 1199px) {
+    .hidden-lg-down {
+        display: none !important;
+    }
+}
+
+.hidden-xl-down {
+    display: none !important;
+}
+
+/************ ***************/
+
+.hidden-xs-up {
+    display: none !important;
+}
+
+@media (min-width: 576px) {
+    .hidden-sm-up {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .hidden-md-up {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) {
+    .hidden-lg-up {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .hidden-xl-up {
+        display: none !important;
+    }
+}
+
+
+/*****************************************
+utilities
+*****************************************/
+.screen-reader-only { /* sprawdzić czy jest lepszy sposób na wyświetlanie treści dla czytników, link do artykułu z obecnym rozwiązaniem: 'http://webaim.org/techniques/css/invisiblecontent/' */
+	position:absolute;
+	left:-10000px;
+	top:auto;
+	width:1px;
+	height:1px;
+	overflow:hidden;
+}
+
+.icon::before { /* link do rozwiązania: 'https://dusted.codes/making-font-awesome-awesome-using-icons-without-i-tags' */
+    display: inline-block;
+    margin-right: .5em;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    transform: translate(0, 0);
+    color: #ffa000;
+}
+
+.btn {
+    padding: 0.8em 3.5em;
+    background: #ffa000;
+    border-radius: 1.3em;
+    color: white;
+    font-size: 1rem;
+    min-width: 200px;
+    text-align: center;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.btn_center-align {
+    position: relative;
+    display: inline-block;
+    left: 50%;
+    transform: translateX(-50%);
+}

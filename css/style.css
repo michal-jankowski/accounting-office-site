@@ -1,0 +1,240 @@
+body {
+    font-family: 'PT Sans', sans-serif;
+    color: #525252;
+    font-size: 16px;
+}
+
+.page-wrapper {
+    width: 100%;
+    padding-top: 1em;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+
+/*****************************************
+header
+*****************************************/
+
+.header-top {
+    padding: 0 4% 0.8em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #e4e4e4;
+}
+
+.header-top__logo {
+    font-size: 1.875rem;
+    color: #3f4b5a;
+}
+
+.header-top__logo_small {
+    display: block;
+    font-size: 1.1rem;
+}
+
+.header-top__contact-info {
+    display: flex;
+    flex-direction: column;
+}
+
+.nav {
+    padding: 1em 4%;
+}
+
+.nav__item {
+    display: inline-block;
+}
+
+.nav__link {
+    padding: 0.3em 2em;
+}
+
+
+/*****************************************
+hero section in header
+*****************************************/
+
+.hero-section {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 550px;
+    max-height: 650px;
+    background: #f1f2f6;
+}
+
+.hero-section__image {
+    width: 100%;
+}
+
+.hero-section__title {
+    padding: 0 4%;
+}
+
+.hero-section__title {
+    font-size: 2.5rem;
+    color: #3f4b5a;
+    font-weight: bold;
+}
+
+.hero-section__title_small {
+    display: block;
+    font-size: 1.3rem;
+}
+
+.hero-section__btn {
+    margin-top: 1.9em;
+    margin-left: 4%;
+    align-self: flex-start;
+}
+
+
+/*****************************************
+section
+*****************************************/
+
+.section {
+    padding: 7em 4% 0;
+    margin: 0 auto;
+    max-width: 1200px;
+}
+
+.header__title,
+.header__subtitle {
+    text-align: center;
+}
+
+.header__title {
+    font-size: 2rem;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.5em;
+}
+
+.header__subtitle,
+.header__line,
+.text-block {
+    margin: 0 auto;
+}
+
+.header__subtitle {
+    font-size: 1.1rem;
+    font-weight: bold;
+    max-width: 550px;
+}
+
+.header__line {
+    width: 30px;
+    height: 3px;
+    background: #ffa000;
+    margin-top: 1.5em;
+    margin-bottom: 2.5em;
+}
+
+.text-block {
+    text-align: center;
+}
+
+.text-block__paragraph {
+    margin-bottom: 1.5em;
+}
+
+.text-block__paragraph_last {
+    margin-bottom: 0;
+}
+
+
+/*****************************************
+contact section
+*****************************************/
+.offer-section__btn {
+    margin-top: 2.5em;
+}
+
+
+/*****************************************
+contact section
+*****************************************/
+.contact-section {
+    padding-left: 0;
+    padding-right: 0;
+    max-width: none;
+}
+
+.contact-section__inner {
+    padding: 4em 4% 0;
+    background: #f1f2f6;
+}
+
+.contact-section__content {
+    padding: 2em calc(2em - 5px); /* compensate extra 5px applys on contact-form__field margin-left */
+    background: #ffffff;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.contact-section__contact-header {
+    display: flex;
+    align-items: center;
+    height: 20px;
+    margin-left: 5px;
+}
+
+.contact-section__contact-header:not(:first-child) {
+    margin-top: 1.2em;
+}
+
+.contact-section__contact-title {
+    text-transform: uppercase;
+    font-size: 1.05rem;
+    display: inline-block;
+}
+
+.contact-section__icon:before {
+    font-size: 1.5rem;
+    text-align: center;
+    width: 24px;
+    margin-right: 12px;
+}
+
+.contact-section__text {
+    display: block;
+    margin-left: 41px; /* icon width 24px + icon:before margin-right 12px + 5px (contact-form__field margin-left) = 41px */
+}
+
+.contact-form__header {
+    text-transform: uppercase;
+    font-size: 1.05rem;
+    margin: 2.6em 0 0.5em 5px;
+}
+
+.contact-form__content {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+
+.contact-form__field {
+    margin: 5px;
+    padding: 1em;
+    border: 1px solid #e8e8e8;
+    min-width: 200px;
+    background-color: #f9f9f9;
+    font-size: 0.875rem;
+    font-family: 'PT Sans', sans-serif;
+}
+
+.contact-form__field_half {
+    flex: 1 0 48%;
+}
+
+.contact-form__field_full {
+    width: 100%;
+}
+
+.contact-form__textarea {
+    min-height: 150px;
+    margin-bottom: 10px;
+}

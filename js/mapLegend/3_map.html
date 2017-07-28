@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Map Legend</title>
+	<link href="https://fonts.googleapis.com/css?family=Lato:400,700" rel="stylesheet">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCHoY0qGCraOF0lUxjOSLQpjEeVij4jZnI"></script>
+	<script src="richmarker.js"></script>
+	<style>
+		body {
+			font-family: 'Lato', sans-serif;
+		}
+		.investment-map {
+			width: 100%;
+			min-width: 400px;
+			height: 400px;
+		}
+		.blue {
+			color: #0971B2;
+		}
+		.red {
+			color: red;
+		}
+		.map-legend {
+			padding: 0;
+			max-width: 200px;
+			background-color: rgba(0,0,0,.2);
+		}
+		.map-legend p {
+			margin: 0;
+			padding: 10px;
+			cursor: pointer;
+		}
+		.highlight {
+			box-shadow: inset 0 0 31px 2px #888;
+		}
+	</style>
+</head>
+<body>
+	<h2>Legenda</h2>
+	<p>Sprawdź jak wszędzie masz blisko</p>
+
+	<div id="mapInvestment1" class="investment-map"></div>
+
+	<div id="mapLegend1" class="map-legend">
+		<p>
+			<i class="fa fa-university fa-2x blue"></i>
+			<span>Monument</span>
+		</p>
+		<p>
+			<i class="fa fa-hospital-o fa-2x red"></i>
+			<span>Hospital</span>
+		</p>
+	</div>
+
+	<script>
+		(function() {
+			var map = {
+
+				init: function(options) {
+					this.options = options;
+					this.location = this.options.location;
+
+					this.createMap();
+				},
+
+				createMap: function() {
+					var investLoc = this.location.split(",");
+					var investPosition = new google.maps.LatLng(investLoc[0], investLoc[1]);
+
+					var mapOptions = {
+						zoom: 15,
+						center: investPosition,
+						mapTypeId: google.maps.MapTypeId.ROADMAP
+					}
+					
+					this.investMap = new google.maps.Map(document.getElementById("mapInvestment1"), mapOptions);
+
+					var icons = {
+						monument: {
+							icon: '<i class="fa fa-university fa-3x blue"></i>'
+						},
+						hospital: {
+							icon: '<i class="fa fa-hospital-o fa-3x red"></i>'
+						}
+					}
+
+					var features = [
+						{
+							position: new google.maps.LatLng(51.500828, -0.120367),
+							type: 'monument',
+							title: 'Westminster Bridge'
+						},
+						{
+							position: new google.maps.LatLng(51.498971, -0.118350),
+							type: 'hospital',
+							title: 'St Thomas\' Hospital'
+						}
+					]
+
+					var infowindow = new google.maps.InfoWindow({
+					    content: "dummy content"
+					});
+
+					features.forEach(function(feature) {
+			        	var marker = new RichMarker({
+			            position: feature.position,
+			            flat:true,
+			            anchor: RichMarkerPosition.BOTTOM,
+			            content: icons[feature.type].icon,
+			            map: map.investMap,
+			            title: feature.title
+			        });
+			        	marker.addListener('click', function() {
+						    infowindow.open(map, marker);
+						});
+			        });
+				}
+			}
+
+		map.init({
+			location: "51.5, -0.12"
+		});
+
+
+		var mapLegend = {
+
+			init: function() { // do przekazanie w tej funkcji identyfikator mapy (tak chyba będzie lepiej i bardziej uniwersalnie)
+				this.addMapLegendEvents();
+			},
+
+			addMapLegendEvents: function() {
+				var elems = document.querySelectorAll("#mapLegend1 p");
+				for (var i = 0; i < elems.length; i++) {
+					elems[i].addEventListener("click", this.toggleHiglight, false);
+				}
+			},
+
+			toggleHiglight: function() {
+				this.classList.toggle("highlight");
+			}
+		}
+
+		mapLegend.init();
+
+		})();
+	</script>
+</body>
+</html>

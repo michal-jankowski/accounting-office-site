@@ -1,0 +1,95 @@
+/* mobile menu 'Off-Canvas Navigation' based on https://tympanus.net/codrops/2013/08/28/transitions-for-off-canvas-navigations/ */
+/* CSS hamburger icon animation based on https://jonsuh.com/hamburgers/ */
+
+@media (max-width: 767px) {
+	.mobile-menu {
+	    padding: 1em 0; /* czy na pewno w rem podawać padding? A jak base font się będzie zmieniał, chociaż nie powinien zmienić się drastycznie... */
+	    position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 100;
+		width: 80%;
+		height: 100%;
+		background: #f1f2f6;
+		visibility: hidden;
+		/*-webkit-transition: all 0.5s;
+		transition: all 0.5s;*/
+	}
+
+	.mobile-menu__logo {
+		padding: 0 4%;
+	    font-size: 1.875rem;
+	    color: #3f4b5a;
+	}
+
+	.mobile-menu__logo_small {
+	    display: block;
+	    font-size: 1.1rem;
+	}
+
+    .mobile-menu__icon {
+    	width: 40px;
+		height: 24px;
+		position: relative;
+		cursor: pointer;
+    }
+
+    .mobile-menu__icon span,
+    .mobile-menu__icon span:before,
+    .mobile-menu__icon span:after {
+    	display: block;
+    	content: "";
+		position: absolute;
+		height: 4px;
+		width: 100%;
+		opacity: 1;
+		background: #ffa000;
+		border-radius: 0.25em;
+		-webkit-transform: rotate(0deg);
+		-moz-transform: rotate(0deg);
+		-o-transform: rotate(0deg);
+		transform: rotate(0deg);
+		-webkit-transition: 0.25s ease-in-out;
+		-moz-transition: 0.25s ease-in-out;
+		-o-transition: 0.25s ease-in-out;
+		transition: 0.25s ease-in-out;
+    }
+
+    .mobile-menu__icon span:before {
+    	top: 10px;
+    }
+
+    .mobile-menu__icon span:after {
+    	top: 20px
+    }
+
+    .mobile-menu__icon_open span {
+    	transform: translate3d(0,10px,0) rotate(45deg);
+    }
+
+    .mobile-menu__icon_open span:before {
+    	width: 0%;
+ 		opacity: 0;
+    }
+
+    .mobile-menu__icon_open span:after {
+    	transform: translate3d(0,-20px,0) rotate(-90deg);
+    }
+
+    .mobile-menu__nav {
+    	margin-top: 2em;
+    }
+
+    .mobile-menu__link {
+	    display: block;
+	    padding: 0.8em 4%;
+	    font-size: 1rem;
+	    box-shadow: inset 0 -1px rgba(0,0,0,0.2);
+	    -webkit-transition: background 0.3s, box-shadow 0.3s;
+	    transition: background 0.3s, box-shadow 0.3s;
+	}
+
+	.mobile-menu__link_first {
+    	box-shadow: inset 0 -1px rgba(0,0,0,0.2), inset 0 1px rgba(0,0,0,0.2);
+    }
+}
