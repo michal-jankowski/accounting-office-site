@@ -198,6 +198,7 @@ utilities
 }
 
 .btn {
+    position: relative;
     padding: 0.8em 3.5em;
     background: #ffa000;
     border-radius: 1.3em;

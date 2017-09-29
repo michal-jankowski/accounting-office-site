@@ -24,7 +24,7 @@
 	padding: 1em 0;
 	border-bottom: 1px solid rgba(0,0,0,0.2);
 	text-transform: uppercase;
-	text-align: center;
+	text-align: left;
 	cursor: pointer;
 }
 
@@ -62,7 +62,7 @@
 }
 
 .accordion-element__content {
-	text-align: center;
+	text-align: left;
 }
 
 .accordion-element__text {
@@ -71,6 +71,16 @@
 
 .accordion-element__text:last-child {
 	margin-bottom: 2em;
+}
+
+.accordion-element__list-title {
+	font-weight: bold;
+}
+
+.accordion-element__list-item {
+	display: list-item;
+	list-style-type: decimal;
+	margin-left: 26px;
 }
 
 .accordion-element__checkbox:checked ~ .accordion-element__content {
