@@ -217,12 +217,14 @@ contact section
 }
 
 .contact-section__header-top {
+    margin: 0 auto;
     padding: 0 4% 0;
+    max-width: 1200px;
 }
 
 .contact-section__inner {
-    padding: 4em 4% 0;
-    background: #f1f2f6;
+    padding: 0 4% 0;
+    background: #ffffff;
 }
 
 .contact-section__content {
@@ -303,14 +305,6 @@ contact section
 
 .offer-section__btn {
     margin-top: 2.5em;
-}
-
-/* MEDIA QUERIES */
-@media screen and (max-width: 767px) {
-    .contact-section__inner {
-        padding-top: 0;
-        background: #ffffff;
-    }
 }
 
 
